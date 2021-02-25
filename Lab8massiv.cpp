@@ -24,6 +24,7 @@ List<T, size> &constructor(List<T, size> &is) {//1
     for (int i=0;i<size;i++){
         is.mas[i]=T();
     }
+    return is;
 }
 
 template<typename T, size_t size>
@@ -31,6 +32,7 @@ List<T, size> &destructor(List<T, size> &is) {//2
     for (int i=0;i<size;i++){
         is.mas[i]=T();
     }
+    return is;
 }
 template<typename T, size_t size>
 size_t realsize(List<T, size> &is) {//3
@@ -70,6 +72,7 @@ template<typename T, size_t size>
 T pophead(List<T, size> &is) {//6
     if (realsize(is) == 0) {
         std::cout << "List is empty" << std::endl;
+        return T();
     } else {
         T data = is.mas[0];
         is.mas[0] = T();
