@@ -222,7 +222,10 @@ T show(const List<T> &is, unsigned int index) //12
         }
         std::cout << iter->data << std::endl;
         return iter->data;
-    } else { std::cout << "the index is clear" << std::endl;}
+    } else {
+        std::cout << "the index is clear" << std::endl;
+        return T();
+    }
 }
 
 template<typename T>
@@ -236,6 +239,7 @@ int search(const List<T> &is, T data) //13
         return i;
     } else {
         std::cout << "list dont have this data" << std::endl;
+        return -1;
     }
 }
 
@@ -297,21 +301,21 @@ int main() {
     /////
     std::vector<harddata<int>> dat(6);
     srand(time(nullptr));
-    for (harddata<int>& da:dat){
-        da.data=rand()%11;
+    for (harddata<int> &da:dat) {
+        da.data = rand() % 11;
     }
     List<harddata<int>> p1;
     constructor(p1);
-    pushtail(p1,dat[0]);
-    pushtail(p1,dat[1]);
-    pushtail(p1,dat[2]);
-    pushindex(p1,0,dat[3]);
-    pushindex(p1,2,dat[4]);
+    pushtail(p1, dat[0]);
+    pushtail(p1, dat[1]);
+    pushtail(p1, dat[2]);
+    pushindex(p1, 0, dat[3]);
+    pushindex(p1, 2, dat[4]);
     print(p1);
     poptop(p1);
     poptail(p1);
-    popindex(p1,0);
-    show(p1,7);
+    popindex(p1, 0);
+    show(p1, 7);
     print(p1);
     distructor(p1);
     return 0;
